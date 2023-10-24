@@ -11,10 +11,16 @@
     */
 
     //Entrada
-
+    let nome = prompt("Digite o seu nome: ").trim().toUpperCase();
+    let sexo = prompt("Digite o seu sexo ('F' ou 'M')").trim().toUpperCase();
+    let salario = Number(prompt("Digite o seu salário").replace(",", "."));
+    let estadoCivil = prompt("Digite o seu estado civil ('s', 'c', 'v', 'd')").trim().toUpperCase();
 
     //Processamento
-
+    while (nome.length <= 3) {nome = prompt("Digite o seu nome corretamente: ").trim().toUpperCase();}
+    while (sexo != 'F' && sexo != 'M') {sexo = prompt("Digite o seu sexo (F ou M)").trim().toUpperCase();}
+    while (salario <= 0) {salario = Number(prompt("Digite o seu salário").replace(",", "."));}
+    while (estadoCivil != 'S' || estadoCivil != 'C' || estadoCivil != 'V' || estadoCivil != 'D') {estadoCivil = prompt("Digite o seu estado civil ('s', 'c', 'v', 'd')").trim().toUpperCase();}
 
     //Saída
 
