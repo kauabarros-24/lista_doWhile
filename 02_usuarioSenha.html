@@ -6,6 +6,14 @@
     */
 
     //Entrada
+    let nome = prompt('Digite o seu nome: ');
+    let senha = prompt('Digite a sua senha: ');
+    
+    while (senha == nome) {
+        alert("A senha e o nome não podem ser iguais!");
+        nome = prompt('Digite o seu nome: ');
+        senha = prompt('Digite a sua senha: ');
+    }
 
 
     //Processamento
