@@ -6,6 +6,18 @@
     */
 
     //Entrada
+    let lista = [];
+    let senha = Number(prompt('Digite a senha de 4 dígitos: '));
+    lista.push(senha);
+    senha = Number(prompt("Digite a senha novamente: "));
+    if (senha == lista[0]) {
+        alert("Senha correta");
+    }
+    while (lista[0] != senha) {
+        alert('Senha incorreta');
+        senha = Number(prompt('Digite a senha de 4 dígitos: '));
+
+    }
 
 
     //Processamento
