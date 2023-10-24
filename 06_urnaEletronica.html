@@ -20,13 +20,36 @@
     */
 
     //Entrada
+    let lista = [];
+    let n = 99999999999999999999999999999999999999999999999999999999999;
+    let i = 0;
+    let candidato1 = 0;
+    let candidato2 = 0;
+    let nulo = 0;
+    let branco = 0;
+    let mensagem = "";
 
 
+
+    do {
+        n = Number(prompt("Digite o número do seu candidato (\n1 Candidato Joãozinho | \n2 Candidato Mariazinha | \n3 Nulo | \n4 Branco |"));
+        (n == 1) ? candidato1++ : (n == 2) ? candidato2++ :  (n == 3) ? nulo++ : (n == 4) ? branco++ : console.log('Valor diferente');
+;;  
+        lista.push(n); 
+        if (n == 0) {
+            break;
+        }
+        i++;
+    } while (n != 0);
+
+
+    (candidato1 > candidato1) ? mensagem = "Joãozinho" : (candidato2 > candidato1) ? mensagem = 'Marianzinha' : mensagem = 'Nenhum, pois houve empate';
+    
+    alert(`O candidato Joãozinho recebeu ${candidato1} votos \nA candidata Mariazinha recebeu ${candidato2} votos\nA porcentagem de votos nulos foi ${((nulo / i) * 100)}%\nA porcentagem de votos em branco foi de ${((branco / i) * 100)}% \nO candidato() vencedor foi: ${mensagem}`)
+    
     //Processamento
 
 
     //Saída
 
-</script>
-
-
+</script>...
