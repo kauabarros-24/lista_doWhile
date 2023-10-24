@@ -6,7 +6,17 @@
     */
 
     //Entrada
+    let popA = 80000;
+    let popB = 200000;
+    let i = 0;
 
+    while (popA <= popB) {
+        popA *= 0.03;
+        popB *= 0.015;
+        i++;
+
+    }
+    alert(`Levará ${i} anos para a população A igualar-se a população B`);
 
     //Processamento
 
