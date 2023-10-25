@@ -13,6 +13,57 @@
     */
 
     //Entrada
+    let continuar = "";
+    let quantidadeMulheres = 0;
+    let media = 0;
+    let menorSalario = 999999999999999999999999999999999;
+    let maiorIdade = 99999999999999999999999999999999999;
+    let menorIdade = 0
+    let sexoMenorSalario = "";
+    let idadeMenorSalario = 9999999999;
+    let idade = 0;
+    let sexo = "";
+    let salario = "";
+    let i = 0;
+    do {
+        idade = Number(prompt('Digite a sua idade: '));
+        sexo = prompt('Digite o seu sexo [M|F]').trim().toUpperCase();
+        salario = Number(prompt("Digite o seu salário: ").replace(",", "."));
+        i++;
+
+        if (maiorIdade >= idade) {
+            maiorIdade = idade;
+        }
+        else if (menorIdade < idade) {
+            menorIdade = idade;
+        }
+
+
+        if (sexo == 'F' || sexo == 'MULHER') quantidadeMulheres++;
+        if (menorSalario > salario) {
+            menorSalario = salario;
+            idadeMenorSalario = idade;
+            if (sexo == 'M') {
+                sexoMenorSalario = 'masculino';
+            }
+            else {
+                sexoMenorSalario = 'feminino';
+            }
+        }
+        media = media + salario;
+        continuar = prompt('Digite se deseja continuar: ').trim().toUpperCase();
+        if (continuar == 'N' || continuar == 'NÃO') break;
+
+
+
+    } while (continuar == 'S' || continuar == 'SIM');
+
+  
+         const mensagem = `A média dos salários do grupo é R$ ${(media / i).toFixed(2).replace('.', ',')}\nA menor idade do grupo é ${menorIdade} anos\nA maior idade do grupo é ${maiorIdade} anos\nHá ${quantidadeMulheres} mulheres na região\nA idade da pessoa que possui o menor salário é ${idadeMenorSalario}\nO sexo da pessoa com o menor salário é ${sexoMenorSalario}`;
+ 
+   
+    
+    alert(mensagem);
 
 
     //Processamento
