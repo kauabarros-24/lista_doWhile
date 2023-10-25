@@ -13,54 +13,35 @@
     */
 
     //Entrada
-   let idade = 0;
-   let listaIdade = [];
-   let menorSalario = 999999999;
-   let somaSalario = 0;
-   let i = 0;
-   let contadorMulher = 0;
-   let sexo = "";
-   let salario = 0;
-   let idadeMenorSalario = 0;
-   let sexoMenorSalario = 0;
-   let continuar = "";
+    let continuar = 'S';
+    let idade = 0;
+    let salario = 0;
+    let quantidadeMulheres = 0;
+    let maiorIdade = 0;
+    let menorIdade = 0;
 
-
-
-    //Processamento
     while (true) {
-        let idade = Number(prompt("Digite a sua idade : "));
-        if (idade < 0) {
+        idade = Number(prompt('Digite a sua idade'))
+        sexo = prompt('Digite o seu sexo: [F|M]').trim().toUpperCase();
+        if (sexo == 'F') {
+            quantidadeMulheres++;
+            sexo = 'feminino';
+        }
+        else {
+            sexo = 'masculino';
+        }
+        maiorIdade = Math.max(...idade);
+        menorIdade = Math.min(...idade);
+        salario = Number(prompt("Digite o seu salário: ").replace(",", '.'));
+        
+        continuar = prompt('Digite se deseja continuar: [S|N]').trim().toUpperCase();
+        if (continuar == 'N') {
             break;
         }
-        let sexo = prompt('Digite o seu sexo: [M|F]').trim().toUpperCase();
-        if (sexo == "F" || sexo == "FEMININO") {
-            contadorMulher++;
-        }
-        let salario = Number(prompt('Digite o seu salário: ').replace(",", "."));
-        listaIdade.push(idade);    
-        if (menorSalario >= salario) {
-            menorSalario = salario;
-            idadeMenorSalario = idade;
-            if (sexo == 'M') {
-                sexoMenorSalario = 'masculino';
-            }
-            else {
-                sexoMenorSalario = 'feminino';
-            }
-
-        }
-        somaSalario =  somaSalario + salario;
-        i++;
-
-        let continuar = prompt('Digite  "S" se desejar continuar e "N" se desejar parar: ').trim().toUpperCase();
-        if (continuar == 'N') break;
     }
-    listaIdade.sort(function (a, b) {return a - b});
-    alert (`A média salarial é ${(somaSalario / i ).toFixed(2).replace('.', ',')}\nA menor idade é ${listaIdade[0]} anos e a maior idade é ${listaIdade[listaIdade.length - 1]} anos\nHá ${contadorMulher} mulher(es) na região\nA idade da pessoa com menor salário é ${idadeMenorSalario} e o sexo é ${sexoMenorSalario}`);
 
 
 
-    //Saída
+    //
 
 </script>
