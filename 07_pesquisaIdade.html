@@ -50,14 +50,15 @@
             if (menorSalario == listaMenorSalario[i - 1]) {
                 listaIdadeIgual.push(idade, listaIdadeMenorSalario[i - 1]);
                 sexoIgual.push(sexo, listaSexoMenorSalario[i - 1]);
-                listaSalarioIgual.push(salario);    
+                listaSalarioIgual.push(salario);
                 contador++;
             }
-            else if (contador >= 1 && menorSalario < listaIdadeMenorSalario[i - 1]){
-                for (n of listaIdadeIgual) {listaIdade.pop(n);}
-                for (n  of sexoIgual) {sexoIgual.pop(n);}
-                for (n of listaSexoMenorSalario) {listaSalarioIgual.pop(n);}
-                contador = 0;
+            else if (contador >= 1 && menorSalario <= listaSalarioIgual[listaSalarioIgual.length - 1]) {
+                while (listaIdade.length != 0 && sexoIgual != 0 && listaSalarioIgual != 0) {
+                    listaIdade.pop();
+                    sexoIgual.pop();
+                    listaSalarioIgual.pop();
+                }
             }
         }
         i++;
@@ -69,22 +70,19 @@
             break;
         }
     }
-    listaIdade.sort(function (a, b) {return (a - b)});
+    listaIdade.sort(function (a, b) { return (a - b) });
 
     if (listaSalarioIgual.length == 0) {
         alert(`Existe(m) ${contadorMulher} mulher(es) na região\nA menor idade do grupo é ${listaIdade[0]} ano(s) e a maior idade do grupo é ${listaIdade[listaIdade.length - 1]} ano(s)\nA média dos salários do grupo é R$ ${(media.toFixed(2)).replace('.', ',')} \nA idade da pessoa que possui o menor salário é ${listaIdadeMenorSalario[listaIdadeMenorSalario.length - 1]} anos e o sexo é ${listaSexoMenorSalario[listaSexoMenorSalario.length - 1]}`);
-    } 
+    }
     else {
         alert(`Existe(m) ${contadorMulher} mulher(es) na região\nA menor idade do grupo é ${listaIdade[0]} ano(s) e a maior idade do grupo é ${listaIdade[listaIdade.length - 1]} ano(s)\nA média dos salários do grupo é R$ ${(media.toFixed(2)).replace('.', ',')} `);
-        for (n of listaIdadeIgual) {document.write(`<li>Idade das pessoas que possuem o salários iguais: ${n} anos</li>`);}
-        for (o of sexoIgual) {document.write(`<li>Sexo das pessoas que possuem o salários iguais: ${o} anos</li>`);}   
+        for (n of listaIdadeIgual) { document.write(`<li>Idade das pessoas que possuem os salários iguais: ${n} anos</li>`); }
+        for (o of sexoIgual) { document.write(`<li>Sexo das pessoas que possuem os salários iguais: ${o}</li>`); }
     }
-    
-    
 
 
 
 
-    //
 
 </script>
